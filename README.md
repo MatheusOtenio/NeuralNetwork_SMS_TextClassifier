@@ -19,11 +19,6 @@ A função **predict_message("Congratulations, you’ve won a prize!")** pode re
 [0.15, 'spam']
 ```
 
-### Pré-processamento dos dados:
-O conjunto de dados foi dividido em **train data** e **test data**. O modelo foi treinado com o conjunto de dados de treinamento e avaliado utilizando o conjunto de dados de teste. Para garantir a melhor performance do modelo, foram aplicadas técnicas de vetorização de texto, como **TF-IDF** (Term Frequency-Inverse Document Frequency), para transformar o texto em dados numéricos que pudessem ser processados pelo modelo.
-
-Este projeto me proporcionou uma experiência prática no trabalho com **classificação de texto** e **modelos de aprendizado supervisionado**, e me motivou a seguir explorando como aplicar técnicas de Machine Learning em problemas de processamento de linguagem natural (NLP).
-
 ## Resultado
 
 No meu projeto, consegui treinar um modelo de aprendizado de máquina que classifica com precisão as mensagens SMS como **ham** ou **spam**. A função **predict_message** retorna a classificação correta para uma mensagem de entrada.
