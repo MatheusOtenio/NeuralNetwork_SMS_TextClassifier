@@ -100,5 +100,3 @@ def test_predictions():
     print("You haven't passed yet. Keep trying.")
 
 test_predictions()
-
-"""# Nova seção"""
