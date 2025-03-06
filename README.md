@@ -1,27 +1,60 @@
-## SMS Spam Classifier
+#  SMS Text Classification
 
-Este projeto foi desenvolvido como parte do currículo "Machine Learning with Python" da freeCodeCamp, com o objetivo de criar um modelo de aprendizado de máquina para classificar mensagens SMS como **"ham"** (mensagens normais de amigos) ou **"spam"** (mensagens de publicidade ou empresas). O modelo foi construído utilizando técnicas de **Machine Learning** e a biblioteca **scikit-learn**.
+Este projeto implementa um classificador de mensagens SMS para distinguir entre mensagens legítimas ("ham") e mensagens de spam. Utiliza uma rede neural simples construída com TensorFlow e Keras, processando os dados através de técnicas de codificação e padding.
 
-O conjunto de dados utilizado é o **SMS Spam Collection**, que contém uma coleção de mensagens SMS rotuladas como **"ham"** ou **"spam"**. O desafio do projeto foi treinar um modelo de classificação para prever se uma mensagem SMS é "ham" ou "spam", com base no texto da mensagem.
+##  Tecnologias Utilizadas
 
-### Funcionalidade Principal:
+- **Python** - Linguagem de programação principal
+- **TensorFlow/Keras** - Framework para machine learning
+- **Pandas** - Manipulação de dados
+- **NumPy** - Operações matemáticas
+- **Matplotlib** - Visualização de dados
+- **TensorFlow Datasets** - Biblioteca para manipulação de conjuntos de dados
 
-Foi criada uma função chamada **predict_message**, que recebe uma mensagem de texto como argumento e retorna uma lista contendo:
+##  Estrutura do Projeto
 
-1. Um número entre 0 e 1, indicando a probabilidade de ser "ham" (0) ou "spam" (1).
-2. A string "ham" ou "spam", dependendo da classificação mais provável para a mensagem.
+1. **Coleta de Dados**: Os conjuntos de dados de treino e validação são baixados e carregados em `pandas.DataFrame`.
+2. **Pré-processamento**:
+   - Tokenização das mensagens
+   - Criação de um dicionário de vocabulário
+   - Codificação das mensagens com `one_hot`
+   - Padding das sequências para garantir o mesmo comprimento
+3. **Criação do Modelo**:
+   - Camada de embedding para representação vetorial das palavras
+   - Camada `Flatten` para transformar os embeddings em um vetor unidimensional
+   - Camada `Dense` final com ativação `sigmoid` para classificação binária
+4. **Treinamento do Modelo**:
+   - Utiliza `EarlyStopping` para evitar overfitting
+   - Otimização com `adam` e função de perda `binary_crossentropy`
+5. **Predição**:
+   - Implementação da função `predict_message()` para classificar novas mensagens
+   - Teste automático de predições com mensagens conhecidas
 
-### Exemplo de execução:
+##  Instalação e Execução
 
-A função **predict_message("Congratulations, you’ve won a prize!")** pode retornar:
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
+2. Instale as dependências necessárias:
+   ```sh
+   pip install tensorflow-datasets pandas numpy matplotlib tensorflow
+   ```
+3. Execute o script principal:
+   ```sh
+   python fcc_sms_text_classification.py
+   ```
+4. Teste a predição de mensagens personalizadas modificando `pred_text`.
 
-```python
-[0.15, 'spam']
-```
+##  Roadmap
 
-## Resultado
+- [ ] Melhorar a eficiência do modelo com arquiteturas mais complexas
+- [ ] Implementar técnicas de pré-processamento mais avançadas (remoção de stopwords, stemming, etc.)
+- [ ] Criar uma interface gráfica para facilitar o uso do classificador
 
-No meu projeto, consegui treinar um modelo de aprendizado de máquina que classifica com precisão as mensagens SMS como **ham** ou **spam**. A função **predict_message** retorna a classificação correta para uma mensagem de entrada.
+##  Licença
+
+Este projeto segue a licença MIT.
 
 ## Referências
 
